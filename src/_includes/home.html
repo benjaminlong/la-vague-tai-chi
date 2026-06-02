@@ -1,0 +1,13 @@
+{% extends "layouts/base.html" %}
+
+{% block hero_banner %}
+	{% if hero_enabled %}
+		{% include "components/hero.html" %}
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="p-4 prose lg:prose-xl dark:prose-invert bg-white dark:bg-gray-800 mx-auto">
+	{{ content | safe }}
+</div>
+{% endblock %}

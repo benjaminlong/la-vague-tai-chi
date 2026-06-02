@@ -1,0 +1,38 @@
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+    <div class="p-4 mx-auto prose lg:prose-xl dark:prose-invert  bg-white dark:bg-gray-800">
+        {{ content | safe }}
+
+        <div class="flex flex-col md:flex-row not-prose pt-4 mt-4">
+            <div class="flex flex-col flex-1">
+                <h4 class="flex flex-row items-center font-bold">
+                    <i class="fa-regular fa-alarm-clock size-1 inline-block"></i>
+                    Horaire
+                </h4>
+                <div>Le <strong>{{lesson.day}}</strong> de {{lesson.start_time}} à {{lesson.end_time}}</div>
+                <div class="flex flex-col ml-4">
+                    {% for level in lesson.levels %}
+                        <small>{{ level }}</small>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="flex flex-col flex-1">
+                <h4 class="flex flex-row items-center">
+                    <i class="fa-solid fa-map-location size-1 inline-block"></i>
+                    Adresse
+                </h4>
+                <div class="flex flex-col justify-start flex-1">
+                    <div class="font-semibold">{{ short_title }}</div>
+                    <div>{{ address.line1 }}</div>
+                    <div>{{ address.post_code }} {{ address.city }}</div>
+                </div>
+                <div class="max-w-80 mx-auto">
+        {#             <img class="object-cover" #}
+        {#                  src="{{ address.open_street_map_url }}" alt="{{ short_title }}"> #}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

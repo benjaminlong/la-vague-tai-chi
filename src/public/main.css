@@ -1,0 +1,25 @@
+:root {
+	/* semantic colors */
+	color-scheme: light dark;
+}
+
+body {
+    /*background-color: #ccc;*/
+    margin: 0;
+    padding: 0;
+}
+
+.size-1 {
+  vertical-align: baseline;
+  margin: 0 0.3em;
+  width: 1em;
+  height: 1em;
+}
+
+/*h1, h2, h3, h4, h5, h6 { margin: 0; }*/
+/*a { padding: 0; }*/
+
+/* Gallery */
+.gallery-thumb {
+    margin: 0;
+}

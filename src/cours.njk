@@ -1,0 +1,113 @@
+---
+title: Les Cours | La Vague | Taï Chi Chuan
+layout: "layouts/base.njk"
+permalink: "/les-cours/"
+eleventyNavigation:
+  key: cours
+  title: Les Cours
+  icon: "fa-solid fa-calendar-days"
+  order: 4
+main_header:
+  title: "Les Cours"
+#  subtitle: "Marseille 1er"
+  image_url: "/public/gallery/TaiChi-233.jpg"
+---
+
+<h4>Les différentes pratiques</h4>
+
+<div class="flex flex-col text-center">
+    Forme lente, rapide, épée, sabre, bâtons, tui shou, sanshou (pratique avec partenaire), qi gong, échauffements, étirements...
+</div>
+
+<h4>Les lieux</h4>
+
+<div class="my-4 flex flex-wrap justify-center gap-2">
+    {% for cour in collections.cours %}
+        <div class="flex flex-col p-4 border rounded-md w-52">
+            <div class="font-semibold">{{ cour.data.short_title }}</div>
+            <div class="text-sm">{{ cour.data.address.line1 }}</div>
+            <div class="text-sm">{{ cour.data.address.post_code }}, {{ cour.data.address.city }}</div>
+            <div class="text-sm">{{ cour.data.when_description | safe }}</div>
+        </div>
+    {% endfor %}
+</div>
+
+<h4>Les horaires</h4>
+
+<table class="border-collapse">
+  <thead>
+    <tr class="hidden">
+      <th class="">Jour</th>
+      <th class="">Horaire</th>
+      <th class="">Lieu</th>
+      <th class="">Niveau</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="hidden">
+      <td class="font-semibold">Lundi</td>
+      <td class="">18h00 à 21h00</td>
+      <td class="">Chateaurenard</td>
+      <td class="">Tous niveaux</td>
+    </tr>
+    <tr>
+      <td class="font-semibold">Mardi</td>
+      <td class="">12h15 à 13h45</td>
+      <td class="">
+        <a href="/cours/institut-vallier">Institut Vallier</a>
+        <div class="text-sm"><i>67 rue Ferrari, 13005</i></div>
+      </td>
+      <td class="">Tous niveaux</td>
+    </tr>
+    <tr>
+      <td class=""></td>
+      <td class="">18h00 à 19h30</td>
+      <td class="">
+        <a href="/cours/barasse">CMA de la Barasse</a>
+        <div class="text-sm"><i>100 bd de la Barasse, 13011</i></div>
+      </td>
+      <td class="">Débutant·e·s</td>
+    </tr>
+    <tr>
+      <td class=""></td>
+      <td class="">19h30 à 21h</td>
+      <td class="">
+        <a href="/cours/barasse">CMA de la Barasse</a>
+        <div class="text-sm"><i>100 bd de la Barasse, 13011</i></div>
+      </td>
+      <td class="">Avancé·e·s</td>
+    </tr>
+    <tr>
+      <td class="font-semibold">Jeudi</td>
+      <td class="">18h00 à 19h30</td>
+      <td class="">
+        <a href="/cours/consolat" class="">Consolat</a>
+        <div class="text-sm"><i>99 rue Consolat, 13001</i></div>
+      </td>
+      <td class="">Débutant·e·s</td>
+    </tr>
+    <tr>
+      <td class=""></td>
+      <td class="">19h30 à 21h</td>
+      <td class="">
+        <a href="/cours/consolat">Consolat</a>
+        <div class="text-sm"><i>99 rue Consolat, 13001</i></div>
+      </td>
+      <td class="">Avancé·e·s</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="text-center">
+    Stages réguliers le weekend (samedi après midi et dimanche matin).</br>
+    Pas de cours pendant les vacances scolaires.
+</div>
+
+<div class="hidden">
+    {% for cour in collections.cours %}
+        <div class="">
+            <h3 class="text-xl font-bold"><a href="{{ cour.url }}">{{ cour.data.short_title }}</a></h3>
+            <p>{{ cour.data.short_description }}</p>
+        </div>
+    {% endfor %}
+</div>

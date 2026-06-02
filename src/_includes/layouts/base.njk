@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+<!--    Load tailwind.css -->
+    <link rel="stylesheet" href="/tailwind.css">
+<!--    Loaded tailwind.css -->
+    <link rel="stylesheet" href="/public/main.css">
+<!--    Custom js to enabled dark mode -->
+    <script type="text/javascript" data-name="theme-toggle">
+        (function() {
+            // let savedTheme = null;
+            try {
+                savedTheme = localStorage.getItem('theme');
+            } catch (e) {}
+
+            const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            const theme = savedTheme || systemTheme;
+            // console.log("Settings theme:", theme);
+            document.documentElement.classList.toggle(theme);
+        })();
+    </script>
+<!--    Loaded Custom js to enabled dark mode -->
+</head>
+{#  bg-red-50 border-x border-red-100 dark:bg-gray-800 #}
+<body class="container relative mx-auto max-w-screen-lg bg-red-50 border-x border-red-100 dark:bg-gray-800 dark:border-red-900">
+    {% block top_navbar %}
+        <div class="hidden md:block">
+            {% include "components/top_nav.html" %}
+        </div>
+        <div class="sticky top-0 z-40 bg-white md:hidden">
+            {% include "components/top_nav_sm.html" %}
+        </div>
+
+        <div class="absolute top-0 right-24 z-50">
+            {% include "components/dark_light_toggle.html" %}
+        </div>
+    {% endblock %}
+
+    {% block hero_banner %}
+        {% if hero_enabled %}
+            {% include "components/hero.html" %}
+        {% endif %}
+    {% endblock %}
+
+    <div class="flex">
+        {% include "components/left_menu.html" %}
+        <div class="flex-grow">
+            {% block main_header %}
+                {% if main_header %}
+                    {% include "components/main_header.html" %}
+                {% endif %}
+            {% endblock %}
+            {% block content %}
+                <div class="p-4 mx-auto prose lg:prose-xl dark:prose-invert  bg-white dark:bg-gray-800">
+                    {{ content | safe }}
+                </div>
+            {% endblock %}
+            {% block footer %}
+                {% include "components/footer.html" %}
+            {% endblock %}
+        </div>
+    </div>
+
+    {% include "components/bottom_nav.html" %}
+
+    <!-- outputs all the icons used on the page -->
+    {% getBundle "fontawesome" %}
+
+    <!-- capture the JS content as a Nunjucks variable -->
+    {% set js %} {% include "dark-light-mode.js" %} {% endset %}
+    <!-- feed it through our jsmin filter to minify -->
+    <script>{{ js | jsmin | safe }}</script>
+    <!-- Dark/Light Toggle UX -->
+    <script></script>
+</body>
+</html>

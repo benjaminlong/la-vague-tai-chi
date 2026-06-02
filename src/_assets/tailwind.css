@@ -1,0 +1,8 @@
+/* base not loaded */
+@tailwind base;
+
+/* component loaded */
+@tailwind components;
+
+/* utilities loaded */
+@tailwind utilities;

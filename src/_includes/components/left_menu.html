@@ -1,0 +1,28 @@
+<div class="flex h-screen flex-col justify-between bg-red-100 hidden md:flex sticky top-0 dark:bg-gray-900 text-gray-800 dark:text-yellow-100">
+  <div class="p-3 flex flex-col space-y-4 justify-start">
+<!--    <img src="/logolv.jpg" alt="logo la vague" class="object-cover mx-auto">-->
+
+    {% include "components/nav-list-nested.njk" %}
+
+    <div class="border-y py-4 border-t-gray-400 border-b-gray-400 text-center flex flex-col gap-2">
+        <h4 class="capitalize text-center font-bold text-lg">
+          Renseignements</br>Inscriptions
+        </h4>
+        <div class="flex flex-col">
+            <div>Pierre Navarino </div>
+            <div class="text-sm">06 76 73 45 81</div>
+            <a class="px-2 underline text-blue-600" href="mailto:lavague.taichichuan@free.fr">lavague.taichichuan@free.fr</a>
+        </div>
+    </div>
+
+    <div class="flex flex-row gap-1 justify-center">
+        <!-- facebook button with link -->
+        <a href="https://www.facebook.com/lavaguetaichichuan"
+           class="flex items-center gap-2 p-2 pr-4 rounded-lg bg-blue-600 hover:bg-blue-700 text-white"
+           target="_blank" rel="noreferrer">
+          <i class="fa-brands fa-facebook size-1"></i>
+          <span class="text-sm">Facebook</span>
+        </a>
+    </div>
+  </div>
+</div>
