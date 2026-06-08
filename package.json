@@ -10,9 +10,9 @@
     "start": "eleventy --serve",
     "build": "yarn tailwind:build && yarn eleventy:build",
     "eleventy:build": "yarn eleventy",
-    "tailwind:dev": "tailwindcss build -i src/_assets/tailwind.css -c tailwind.config.js -o _site/tailwind.css --watch",
-    "tailwind:build": "tailwindcss build -i src/_assets/tailwind.css -c tailwind.config.js -o _site/tailwind.css",
-    "tailwind:build_min": "tailwindcss build -i src/_assets/tailwind.css -c tailwind.config.js -o _site/tailwind.min.css --minify",
+    "tailwind:dev": "tailwindcss build -i src/_assets/tailwind.css -c tailwind.config.js -o src/public/tailwind.css --watch",
+    "tailwind:build": "tailwindcss build -i src/_assets/tailwind.css -c tailwind.config.js -o src/public/tailwind.css",
+    "tailwind:build_min": "tailwindcss build -i src/_assets/tailwind.css -c tailwind.config.js -o src/public/tailwind.min.css --minify",
     "tailwind:watch": "yarn tailwind:build --watch"
   },
   "dependencies": {

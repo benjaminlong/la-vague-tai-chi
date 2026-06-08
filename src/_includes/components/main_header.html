@@ -1,5 +1,5 @@
 <div class="main-header flex flex-row"
-     style="height: 33vh; background-image: url('{{ main_header.image_url }}'); background-size: cover; background-position: center;">
+     style="height: 33vh; background-image: url('{{ main_header.image_url | url }}'); background-size: cover; background-position: center;">
   <div class="flex flex-col justify-end">
     {% if main_header.title or main_header.subtitle %}
       <div class="flex flex-col bg-gray-50 bg-opacity-50 p-4 items-baseline {{ main_header.color|default('text-gray-900') }}">

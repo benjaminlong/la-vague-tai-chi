@@ -1,6 +1,6 @@
 {% set navPages = collections.all | eleventyNavigation %}
 {% macro renderNavListItem(entry) %}
-  <a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page" {% endif %}
+  <a href="{{ entry.url | url }}"{% if entry.url == page.url %} aria-current="page" {% endif %}
      class="flex flex-col items-center p-4 font-medium {% if entry.url == page.url %}bg-red-50 dark:bg-gray-700 {% else %}{% endif %}">
     {% if entry.icon %}
         <i class="{{ entry.icon }} size-1 inline-block"></i>

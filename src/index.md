@@ -4,7 +4,7 @@ layout: "layouts/base.njk"
 hero_enabled: true
 #hero_title: "La Vague"
 #hero_subtitle: "Taï Chi Chuan"
-hero_image: "/public/gallery/TaiChi-10.jpg"
+hero_image: "/public/images/gallery/TaiChi-10.jpg"
 hero_color: "text-gray-800"
 eleventyNavigation:
   key: Home

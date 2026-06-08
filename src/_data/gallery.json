@@ -2,74 +2,62 @@
     {
         "title": "Terrace with green plants on night street",
         "credit": "Photo by ...",
-        "src": "TaiChi-7.jpg",
-        "alt": "Todo",
-        "imgDir": "/public/gallery"
+        "src": "/public/images/gallery/TaiChi-7.jpg",
+        "alt": "Todo"
     },
     {
         "title": "Highway covered in water",
         "credit": "Photo by ...",
-        "src": "TaiChi-10.jpg",
-        "imgDir": "/public/images/gallery"
+        "src": "/public/images/gallery/TaiChi-10.jpg"
     },
     {
         "title": "Highway covered in water",
         "credit": "Photo by ...",
-        "src": "TaiChi-45.jpg",
-        "imgDir": "/public/images/gallery"
+        "src": "/public/images/gallery/TaiChi-45.jpg"
     },
     {
         "title": "Highway covered in water",
         "credit": "Photo by ...",
-        "src": "TaiChi-48.jpg",
-        "imgDir": "/public/images/gallery"
+        "src": "/public/images/gallery/TaiChi-48.jpg"
     },
     {
         "title": "Highway covered in water",
         "credit": "Photo by ...",
-        "src": "TaiChi-53.jpg",
-        "imgDir": "/public/images/gallery"
+        "src": "/public/images/gallery/TaiChi-53.jpg"
     },
     {
         "title": "Highway covered in water",
         "credit": "Photo by ...",
-        "src": "TaiChi-91.jpg",
-        "imgDir": "/public/images/gallery"
+        "src": "/public/images/gallery/TaiChi-91.jpg"
     },
     {
         "title": "Highway covered in water",
         "credit": "Photo by ...",
-        "src": "TaiChi-192.jpg",
-        "imgDir": "/public/images/gallery"
+        "src": "/public/images/gallery/TaiChi-192.jpg"
     },
     {
         "title": "Highway covered in water",
         "credit": "Photo by ...",
-        "src": "TaiChi-233.jpg",
-        "imgDir": "/public/images/gallery"
+        "src": "/public/images/gallery/TaiChi-233.jpg"
     },
     {
         "title": "Highway covered in water",
         "credit": "Photo by ...",
-        "src": "TaiChi-233.jpg",
-        "imgDir": "/public/images/gallery"
+        "src": "/public/images/gallery/TaiChi-233.jpg"
     },
     {
         "title": "Highway covered in water",
         "credit": "Photo by ...",
-        "src": "TaiChi-268.jpg",
-        "imgDir": "/public/images/gallery"
+        "src": "/public/images/gallery/TaiChi-268.jpg"
     },
     {
         "title": "Highway covered in water",
         "credit": "Photo by ...",
-        "src": "TaiChi-280.jpg",
-        "imgDir": "/public/images/gallery"
+        "src": "/public/images/gallery/TaiChi-280.jpg"
     },
     {
         "title": "Highway covered in water",
         "credit": "Photo by ...",
-        "src": "TaiChi-35.jpg",
-        "imgDir": "/public/images/gallery"
+        "src": "/public/images/gallery/TaiChi-35.jpg"
     }
 ]

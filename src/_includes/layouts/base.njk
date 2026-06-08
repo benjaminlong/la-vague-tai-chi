@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
 <!--    Load tailwind.css -->
-    <link rel="stylesheet" href="/tailwind.css">
+    <link rel="stylesheet" href="{{ '/public/tailwind.css' | url }}">
 <!--    Loaded tailwind.css -->
-    <link rel="stylesheet" href="/public/main.css">
+    <link rel="stylesheet" href="{{ '/public/main.css' | url }}">
 <!--    Custom js to enabled dark mode -->
     <script type="text/javascript" data-name="theme-toggle">
         (function() {
@@ -30,7 +30,7 @@
         <div class="hidden md:block">
             {% include "components/top_nav.html" %}
         </div>
-        <div class="sticky top-0 z-40 bg-white md:hidden">
+        <div class="md:hidden">
             {% include "components/top_nav_sm.html" %}
         </div>
 
