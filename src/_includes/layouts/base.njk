@@ -34,9 +34,6 @@
             {% include "components/top_nav_sm.html" %}
         </div>
 
-        <div class="absolute top-0 right-24 z-50">
-            {% include "components/dark_light_toggle.html" %}
-        </div>
     {% endblock %}
 
     {% block hero_banner %}
@@ -54,6 +51,11 @@
                 {% endif %}
             {% endblock %}
             {% block content %}
+                {% if reprise_enabled %}
+                    <div class="bg-white dark:bg-gray-800 p-4">
+                        {% include "components/reprise.html" %}
+                    </div>
+                {% endif %}
                 <div class="p-4 mx-auto prose lg:prose-xl dark:prose-invert  bg-white dark:bg-gray-800">
                     {{ content | safe }}
                 </div>

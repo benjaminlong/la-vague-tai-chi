@@ -1,4 +1,23 @@
-<div class="sticky bottom-0 border-t-2 border-red-200 w-screen bg-white text-gray-800 justify-between border-e  bg-white md:hidden dark:text-yellow-100 dark:bg-gray-900 dark:border-red-900">
-  {% include "components/nav-list.njk" %}
+<div class="sticky bottom-0 z-40 w-screen md:hidden">
+  <!-- État du tiroir (CSS-only, sans JS) -->
+  <input type="checkbox" id="contact-toggle" class="peer sr-only">
+
+  <!-- Backdrop plein écran : un clic à l'extérieur referme le tiroir -->
+  <label for="contact-toggle" aria-label="Fermer" class="fixed inset-0 hidden cursor-default bg-black/20 peer-checked:block"></label>
+
+  <!-- Panneau contact : pleine largeur, juste au-dessus de la barre -->
+  <div class="relative hidden w-full border-t-2 border-red-200 bg-white p-4 shadow-[0_-6px_16px_rgba(0,0,0,0.12)] peer-checked:block dark:border-red-900 dark:bg-gray-900">
+    {% include "components/contact.html" %}
+  </div>
+
+  <!-- Barre de navigation du bas -->
+  <div class="relative w-full border-t-2 border-red-200 bg-white text-gray-800 dark:text-yellow-100 dark:bg-gray-900 dark:border-red-900">
+    <div class="flex flex-row flex-wrap items-stretch justify-center">
+      {% include "components/nav-list.njk" %}
+      <label for="contact-toggle" class="flex cursor-pointer flex-col items-center p-4 font-medium">
+        <i class="fa-solid fa-phone size-1 inline-block"></i>
+        <div class="text-sm">Contact</div>
+      </label>
+    </div>
   </div>
 </div>

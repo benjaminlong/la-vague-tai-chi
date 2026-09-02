@@ -6,6 +6,7 @@ hero_enabled: true
 #hero_subtitle: "Taï Chi Chuan"
 hero_image: "/public/images/gallery/TaiChi-10.jpg"
 hero_color: "text-gray-800"
+reprise_enabled: true
 eleventyNavigation:
   key: Home
   title: Accueil

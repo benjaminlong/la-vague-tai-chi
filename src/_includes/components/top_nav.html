@@ -1,13 +1,40 @@
+<nav class="top-nav sticky top-0 z-40 flex flex-row items-center justify-between gap-4 h-16 px-4 border-b-2 border-gray-200 bg-red-300 dark:bg-gray-800 dark:border-red-900">
+  <!-- Marque : calligraphie + logo, lien vers l'accueil -->
+  <a href="{{ '/' | url }}" class="flex shrink-0 items-center gap-3">
+    <img src="{{ '/public/logo.png' | url }}" alt="太極拳" class="h-10 object-contain">
+    <img src="{{ '/public/logolv.jpg' | url }}" alt="La Vague Taï Chi Chuan" class="h-10 object-contain hidden">
+  </a>
 
-<div class="top-nav flex flex-row justify-between p-4 border-b-2 border-gray-200 bg-red-300 dark:bg-gray-800 dark:border-red-900">
-  <img src="{{ '/public/logo.png' | url }}" alt="logo la vague" class="object-cover h-24">
-<!--  <a href="/" class="inline-block text-xl font-medium transition-opacity hover:opacity-80">-->
-<!--    <span class="hidden">La Vague Tai Chi Chuan</span>-->
-<!--    <img src="/public/logo.png" alt="logo la vague" class="size-10 object-cover">-->
-<!--  </a>-->
-  <div class=" text-red-500 text-center text-lg font-bold flex flex-col">
-    <img src="{{ '/public/logolv.jpg' | url }}" alt="logo la vague" class="mx-auto object-cover">
-    <div class="hidden">La Vague Taï Chi Chuan</div>
+  <!-- Navigation (générée depuis eleventyNavigation) -->
+  {% set navPages = collections.all | eleventyNavigation %}
+  <ul class="flex flex-row flex-wrap items-center justify-end gap-1 list-none" role="list">
+    {%- for entry in navPages %}
+      <li class="relative group">
+        <a href="{{ entry.url | url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}
+           class="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-gray-800 hover:bg-red-200 dark:text-yellow-100 dark:hover:bg-gray-700 {% if entry.url == page.url %}bg-red-50 dark:bg-gray-700{% endif %}">
+          {{ entry.title }}
+          {%- if entry.children.length %}
+            <i class="fa-solid fa-chevron-down transition-transform group-hover:rotate-180" style="width: 0.7rem; height: 0.7rem;"></i>
+          {%- endif %}
+        </a>
+        {%- if entry.children.length %}
+          <ul class="absolute left-0 top-full z-50 hidden min-w-max flex-col rounded-lg border border-gray-200 bg-white py-1 shadow-lg group-hover:flex group-focus-within:flex dark:border-red-900 dark:bg-gray-800" role="list">
+            {%- for child in entry.children %}
+              <li>
+                <a href="{{ child.url | url }}"{% if child.url == page.url %} aria-current="page"{% endif %}
+                   class="block px-4 py-2 text-sm text-gray-800 hover:bg-red-100 dark:text-yellow-100 dark:hover:bg-gray-700 {% if child.url == page.url %}bg-red-50 dark:bg-gray-700{% endif %}">
+                  {{ child.title }}
+                </a>
+              </li>
+            {%- endfor %}
+          </ul>
+        {%- endif %}
+      </li>
+    {%- endfor %}
+  </ul>
+
+  <!-- Toggle dark/light -->
+  <div class="shrink-0">
+    {% include "components/dark_light_toggle.html" %}
   </div>
-  <img src="{{ '/public/logo.png' | url }}" alt="logo la vague" class="object-cover h-24">
-</div>
+</nav>
