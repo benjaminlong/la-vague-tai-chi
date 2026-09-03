@@ -4,11 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-<!--    Load tailwind.css -->
+    <meta name="Author" lang="fr" content="LA VAGUE TAI CHI CHUAN" />
+    <meta name="Reply-to" content="lavague.taichichuan.free.fr" />
+    <meta name="Description" content="Enseignement du Tai Chi Chuan à Marseille" />
+    <meta name="Keywords" content="tai chi chuan, cours taichichuan, tai chi chuan Marseille, la vague tai chi chuan" />
+    <meta name="New_keywords" content="tai chi chuan à Marseille, la vague taichi chuan" />
+    <meta name="Identifier-URL" content="http://lavague.taichichuan.free.fr" />
+    <meta name="robots" content="All" />
+    <meta name="Revisit-After" content="15 days" />
+    {% block meta_data %}{% endblock %}
+    {% block favicon %}
+        <link rel="icon" type="image/jpeg" href="{{ '/public/logolv.jpg' | url }}" />
+    {% endblock %}
+
+    <!--    Load tailwind.css -->
     <link rel="stylesheet" href="{{ '/public/tailwind.css' | url }}">
-<!--    Loaded tailwind.css -->
+    <!--    Load lavague.taichichuan.11ty css -->
     <link rel="stylesheet" href="{{ '/public/main.css' | url }}">
-<!--    Custom js to enabled dark mode -->
+    <!--    Custom js to enabled dark mode -->
     <script type="text/javascript" data-name="theme-toggle">
         (function() {
             // let savedTheme = null;
@@ -22,9 +35,9 @@
             document.documentElement.classList.toggle(theme);
         })();
     </script>
-<!--    Loaded Custom js to enabled dark mode -->
+    <!--    Loaded Custom js to enabled dark mode -->
 </head>
-{#  bg-red-50 border-x border-red-100 dark:bg-gray-800 #}
+
 <body class="container relative mx-auto max-w-screen-lg bg-red-50 border-x border-red-100 dark:bg-gray-800 dark:border-red-900">
     {% block top_navbar %}
         <div class="hidden md:block">
