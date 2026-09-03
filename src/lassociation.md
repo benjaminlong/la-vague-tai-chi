@@ -2,7 +2,7 @@
 title: L'Association | La Vague | Taï Chi Chuan
 layout: "layouts/base.njk"
 hero_enabled: true
-hero_image: "/public/images/gallery/TaiChi-233.jpg"
+hero_image: "/public/gallery/TaiChi-233.jpg"
 eleventyNavigation:
   key: association
   title: L'association
