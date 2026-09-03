@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.5",
+    "@11ty/eleventy-img": "^6",
     "@11ty/font-awesome": "^1.0.1",
     "@tailwindcss/typography": "^0.5.19",
     "fontawesome": "^5.6.3",

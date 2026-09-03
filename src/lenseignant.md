@@ -34,7 +34,7 @@ Depuis 2010, suivi de l’enseignement de Maitre Shi De Sheng : moine de Shaolin
     </div>
     <div class="rounded-full order-1 sm:order-2" style="max-width: 200px; margin: 0 auto;">
 
-![Pierre Navarino en Action](../public/enseignants/pierre-navarino-md.jpg "Le titre de mon image")
+![Pierre Navarino en Action](../public/enseignants/pierre-navarino-md-400.jpg "Pierre Navarino")
 
     </div>
 </div>

@@ -5,8 +5,18 @@
 //import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import fontAwesomePlugin from "@11ty/font-awesome";
 import eleventyNavigation from "@11ty/eleventy-navigation";
+import Image from "@11ty/eleventy-img";
 // Needed to load inline js.
 import { minify } from "terser";
+
+// Escape a string for safe use inside an HTML attribute value.
+function escapeAttr(value) {
+	return String(value || "")
+		.replace(/&/g, "&amp;")
+		.replace(/"/g, "&quot;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;");
+}
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function(eleventyConfig) {
@@ -23,6 +33,43 @@ export default async function(eleventyConfig) {
 			(a, b) => DAY_ORDER.indexOf(a.data.lesson.day) - DAY_ORDER.indexOf(b.data.lesson.day)
 		)
 	);
+
+	// Gallery: generate lightweight thumbnails + a large image for the lightbox.
+	// Emits a <button> holding an optimized <picture> thumbnail; the large
+	// (1600px webp) URL is exposed via data-full for the JS lightbox to load.
+	eleventyConfig.addAsyncShortcode("galleryItem", async function (src, alt, title, index) {
+		const metadata = await Image(src, {
+			widths: [400, 800, 1600],
+			formats: ["webp", "jpeg"],
+			outputDir: "_site/img/",
+			urlPath: "/img/",
+		});
+
+		const altText = escapeAttr(alt || title || "");
+		const titleText = escapeAttr(title || "");
+
+		// Apply the pathPrefix-aware `url` filter so generated image URLs work
+		// under a subpath (e.g. GitHub Pages project sites at /repo/).
+		const url = eleventyConfig.getFilter("url");
+
+		// Thumbnail: small widths only (grid displays ~200px, 400/800 cover retina).
+		const thumbWebp = metadata.webp
+			.filter((img) => img.width <= 800)
+			.map((img) => `${url(img.url)} ${img.width}w`)
+			.join(", ");
+		const thumbFallback =
+			metadata.jpeg.find((img) => img.width === 400) || metadata.jpeg[0];
+
+		// Large image for the viewer: biggest webp we generated.
+		const full = metadata.webp[metadata.webp.length - 1];
+
+		return `<button type="button" class="gallery-item block cursor-pointer border-0 bg-transparent p-0 m-0" data-index="${index}" data-full="${url(full.url)}" data-alt="${altText}" data-title="${titleText}" aria-label="Agrandir l'image${titleText ? ` : ${titleText}` : ""}">
+			<picture>
+				<source type="image/webp" srcset="${thumbWebp}" sizes="(max-width: 640px) 45vw, 200px">
+				<img src="${url(thumbFallback.url)}" width="${thumbFallback.width}" height="${thumbFallback.height}" alt="${altText}" loading="lazy" decoding="async" class="gallery-thumb h-40 w-48 max-w-full rounded object-cover shadow transition-transform duration-200 hover:scale-105">
+			</picture>
+		</button>`;
+	});
 
 	// Dark/Light Mode using jsmin and terser to minify the JavaScript code
 	eleventyConfig.addFilter("jsmin", async function (code) {
