@@ -12,6 +12,14 @@ eleventyNavigation:
   order: 6
 ---
 
-<h3 class=""><i class="fa-solid fa-images size-1 inline-block"></i> Gallery Photos</h3>
+<h3 class="flex flex-row items-center"><i class="fa-solid fa-video size-1 inline-block"></i>Video</h3>
+<div class="not-prose flex flex-col items-center">
+    <video class="" width="75%" controls>
+        <source src="{{ '/public/videos/video-partI-II-III.webm' | url }}" type="video/webm">
+        <source src="{{ '/public/videos/video-partI-II-III.mp4' | url }}" type="video/mp4">
+        Your browser does not support the video tag
+    </video>
+</div>
 
+<h3 class="flex flex-row items-center"><i class="fa-solid fa-images size-1 inline-block"></i> Gallery Photos</h3>
 {% include "components/gallery_feature.html" %}
