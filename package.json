@@ -8,6 +8,7 @@
   "type": "module",
   "scripts": {
     "start": "eleventy --serve",
+    "deploy": "./deploy.sh",
     "build": "yarn tailwind:build && yarn eleventy:build",
     "eleventy:build": "yarn eleventy",
     "tailwind:dev": "tailwindcss build -i src/_assets/tailwind.css -c tailwind.config.js -o src/public/tailwind.css --watch",
