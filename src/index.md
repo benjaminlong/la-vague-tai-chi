@@ -15,7 +15,6 @@ eleventyNavigation:
 ---
 
 **Le Tai Chi Chuan enseigné est une forme yang de la famille Tung :**
-[www.tungkaiying.com](http://www.tungkaiying.com)
 
 La traduction littérale de Tai Chi Chuan est : boxe du faîte suprême.
 Le Tai Chi Chuan est classé dans la catégorie des Arts Martiaux Chinois Internes :
