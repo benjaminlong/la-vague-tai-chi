@@ -1,0 +1,17 @@
+{% extends "themes/lavague/layouts/_default/baseof.html" %}
+
+{% block main %}
+                {% if announcement_enabled %}
+                    <div class="bg-white dark:bg-gray-800 p-4">
+                        {% include "themes/lavague/partials/announcement.html" %}
+                    </div>
+                {% endif %}
+                {% if reprise_enabled %}
+                    <div class="bg-white dark:bg-gray-800 p-4">
+                        {% include "themes/lavague/partials/reprise.html" %}
+                    </div>
+                {% endif %}
+                <div class="p-4 mx-auto prose lg:prose-xl dark:prose-invert  bg-white dark:bg-gray-800">
+                    {{ content | safe }}
+                </div>
+{% endblock %}

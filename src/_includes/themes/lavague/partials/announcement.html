@@ -1,0 +1,26 @@
+{% import "themes/lavague/layouts/cours/summary.html" as cours %}
+<section class="not-prose p-4 rounded-xl border border-emerald-200 bg-emerald-50 dark:border-emerald-800 dark:bg-emerald-950/40">
+    <header class="text-center">
+        <p class="flex items-center justify-center gap-2 text-emerald-700 dark:text-emerald-300">
+            <i class="fa-solid fa-seedling size-4 inline-block"></i>
+            <span class="text-sm font-semibold uppercase tracking-widest">Découvrez le Taï Chï</span>
+        </p>
+    </header>
+
+    <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+        {% for cour in collections.coursByDay %}
+            {{ cours.card(cour, cour.data.lesson.day + " · " + cour.data.lesson.start_time) }}
+        {% endfor %}
+    </div>
+
+    <div class="flex flex-col gap-2 pt-4">
+        <h5 class="text-md text-center font-semibold text-emerald-700 dark:text-emerald-300">
+            <i class="fa-solid fa-gift size-4 inline-block"></i> 1<sup>er</sup> cours d'essai gratuit
+        </h5>
+        <ul class="mx-auto flex flex-wrap justify-center gap-x-5 gap-y-2 border-t p-2 border-emerald-200 text-sm text-gray-700 dark:border-emerald-800 dark:text-gray-300">
+            <li class="flex items-center gap-1.5"><i class="fa-solid fa-clock size-4 inline-block"></i> Venez 5 à 10 min en avance</li>
+            <li class="flex items-center gap-1.5"><i class="fa-solid fa-shoe-prints size-4 inline-block"></i> Chaussures plates et propres</li>
+            <li class="flex items-center gap-1.5"><i class="fa-solid fa-shirt size-4 inline-block"></i> Tenue légère et décontractée</li>
+        </ul>
+    </div>
+</section>

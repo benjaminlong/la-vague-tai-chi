@@ -8,6 +8,7 @@ import eleventyNavigation from "@11ty/eleventy-navigation";
 import Image from "@11ty/eleventy-img";
 // Needed to load inline js.
 import { minify } from "terser";
+import { existsSync } from "node:fs";
 
 // Escape a string for safe use inside an HTML attribute value.
 function escapeAttr(value) {
@@ -34,6 +35,21 @@ export default async function(eleventyConfig) {
 	// Add plugins Navigation
 	eleventyConfig.addPlugin(eleventyNavigation);
 
+	// --- Active theme ---
+	// Content references abstract layout names (`single`, `list`, `cours`);
+	// these aliases map them to the active theme's files, with a Hugo-style
+	// fallback: use a content-type layout if it exists, else `_default`.
+	// Swap the whole look by changing THEME (and adding themes/<name>/).
+	const THEME = process.env.THEME || "lavague";
+	const layout = (type, kind) => {
+		const specific = `themes/${THEME}/layouts/${type}/${kind}.html`;
+		const fallback = `themes/${THEME}/layouts/_default/${kind}.html`;
+		return existsSync(`src/_includes/${specific}`) ? specific : fallback;
+	};
+	eleventyConfig.addLayoutAlias("single", layout("_default", "single"));
+	eleventyConfig.addLayoutAlias("list",   layout("_default", "list"));
+	eleventyConfig.addLayoutAlias("cours",  layout("cours", "single"));
+
 	// Cours triés par jour de la semaine (lundi -> dimanche), avec un tri
 	// secondaire alphabétique (inputPath) pour un ordre stable et déterministe.
 	const DAY_ORDER = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"];
@@ -52,8 +68,8 @@ export default async function(eleventyConfig) {
 		const metadata = await Image(src, {
 			widths: [400, 800, 1600],
 			formats: ["webp", "jpeg"],
-			outputDir: "_site/img/",
-			urlPath: "/img/",
+			outputDir: "_site/public/gallery/",
+			urlPath: "/public/gallery/",
 		});
 
 		const altText = escapeAttr(alt || title || "");
@@ -136,11 +152,11 @@ export default async function(eleventyConfig) {
 };
 
 export const config = {
-	// Control which files Eleventy will process
-	// e.g.: *.md, *.njk, *.html, *.liquid
+	// Control which files Eleventy will process.
+	// `.html` = templates/pages, `.md` = prose content. Both are rendered
+	// through Nunjucks (see *TemplateEngine below); there are no `.njk` files.
 	templateFormats: [
 		"md",
-		"njk",
 		"html",
 	],
 

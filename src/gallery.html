@@ -1,0 +1,23 @@
+---
+title: Gallery | La Vague | Taï Chi Chuan
+description: "Photos et vidéos de la pratique du Taï Chi Chuan avec l'association La Vague à Marseille."
+layout: single
+permalink: "/gallery/"
+eleventyNavigation:
+  key: gallery
+  title: Gallery
+  icon: "fa-regular fa-images"
+  order: 6
+---
+
+<h3 class="flex flex-row items-center"><i class="fa-solid fa-video size-1 inline-block"></i>Video</h3>
+<div class="not-prose flex flex-col items-center">
+    <video class="" width="75%" controls>
+        <source src="{{ '/public/videos/video-partI-II-III.webm' | url }}" type="video/webm">
+        <source src="{{ '/public/videos/video-partI-II-III.mp4' | url }}" type="video/mp4">
+        Your browser does not support the video tag
+    </video>
+</div>
+
+<h3 class="flex flex-row items-center"><i class="fa-solid fa-images size-1 inline-block"></i> Gallery Photos</h3>
+{% include "themes/lavague/partials/gallery.html" %}

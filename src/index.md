@@ -1,11 +1,11 @@
 ---
 title: Accueil | La Vague | Taï Chi Chuan
 description: "Association La Vague à Marseille : enseignement du Taï Chi Chuan, forme Yang de la famille Tung. Art martial interne, méditation en mouvement et gymnastique de santé."
-layout: "layouts/base.njk"
+layout: single
 hero_enabled: true
 #hero_title: "La Vague"
 #hero_subtitle: "Taï Chi Chuan"
-hero_image: "/public/gallery/TaiChi-10-1280.jpg"
+hero_image: "/public/banners/TaiChi-10-1280.jpg"
 hero_color: "text-gray-800"
 announcement_enabled: true
 reprise_enabled: false

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    {% include "themes/lavague/partials/head-meta.html" %}
+    {% block favicon %}
+        <link rel="icon" type="image/jpeg" href="{{ site.logo.wordmark | url }}" />
+    {% endblock %}
+    {%- if site.theme.fonts.googleFontsUrl %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ site.theme.fonts.googleFontsUrl }}">
+    {%- endif %}
+    {%- if site.theme.fonts.base or site.theme.fonts.heading %}
+    <style>
+        {%- if site.theme.fonts.base %}body{font-family:{{ site.theme.fonts.base }};}{% endif %}
+        {%- if site.theme.fonts.heading %}h1,h2,h3,h4,h5,h6{font-family:{{ site.theme.fonts.heading }};}{% endif %}
+    </style>
+    {%- endif %}
+
+    <!--    Load tailwind.css -->
+    <link rel="stylesheet" href="{{ '/public/tailwind.css' | url }}">
+    <!--    Load lavague.taichichuan.11ty css -->
+    <link rel="stylesheet" href="{{ '/public/main.css' | url }}">
+    <!--    Custom js to enabled dark mode -->
+    <script type="text/javascript" data-name="theme-toggle">
+        (function() {
+            // let savedTheme = null;
+            try {
+                savedTheme = localStorage.getItem('theme');
+            } catch (e) {}
+
+            const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            const theme = savedTheme || systemTheme;
+            // console.log("Settings theme:", theme);
+            document.documentElement.classList.toggle(theme);
+        })();
+    </script>
+    <!--    Loaded Custom js to enabled dark mode -->
+</head>
+
+<body class="container relative mx-auto max-w-screen-lg bg-brand-50 border-x border-brand-100 dark:bg-gray-800 dark:border-brand-900">
+    {% block top_navbar %}
+        <div class="hidden md:block">
+            {% include "themes/lavague/partials/header.html" %}
+        </div>
+        <div class="md:hidden">
+            {% include "themes/lavague/partials/header-mobile.html" %}
+        </div>
+
+    {% endblock %}
+
+    {% block hero_banner %}
+        {% if hero_enabled %}
+            {% include "themes/lavague/partials/hero.html" %}
+        {% endif %}
+    {% endblock %}
+
+    <div class="flex">
+        {% include "themes/lavague/partials/sidebar.html" %}
+        <div class="flex-grow">
+            {% block main_header %}
+                {% if main_header %}
+                    {% include "themes/lavague/partials/page-header.html" %}
+                {% endif %}
+            {% endblock %}
+            {% block main %}{% endblock %}
+            {% block footer %}
+                {% include "themes/lavague/partials/footer.html" %}
+            {% endblock %}
+        </div>
+    </div>
+
+    {% include "themes/lavague/partials/bottom-nav.html" %}
+
+    <!-- outputs all the icons used on the page -->
+    {% getBundle "fontawesome" %}
+
+    <!-- capture the JS content as a Nunjucks variable -->
+    {% set js %} {% include "themes/lavague/assets/theme.js" %} {% endset %}
+    <!-- feed it through our jsmin filter to minify -->
+    <script>{{ js | jsmin | safe }}</script>
+    <!-- Dark/Light Toggle UX -->
+    <script></script>
+</body>
+</html>

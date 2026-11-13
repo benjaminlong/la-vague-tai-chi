@@ -20,7 +20,7 @@ export default {
 		wordmark: "/public/logolv.jpg",  // full wordmark + favicon
 	},
 
-	// --- Contact (rendered by components/contact.html) ---
+	// --- Contact (rendered by partials/contact.html) ---
 	contact: {
 		name: "Pierre Navarino",
 		phone: "+33676734581",           // tel: link
@@ -32,4 +32,26 @@ export default {
 	socials: {
 		facebook: "https://www.facebook.com/lavaguetaichichuan",
 	},
+
+	// --- Theme / appearance knobs ---
+	// Brand *colors* live in tailwind.config.js (`brand`). Typography is here:
+	// leave empty to use the theme's default (system) font stack.
+	theme: {
+		fonts: {
+			googleFontsUrl: "", // e.g. "https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
+			heading: "",        // CSS font-family applied to h1–h6 when set
+			base: "",           // CSS font-family applied to <body> when set
+		},
+	},
+
+	// --- Footer ---
+	footer: {
+		note: "", // optional small line under the brand name; empty = hidden
+	},
 };
+
+// NOTE — the following are intentionally NOT global config. They live in each
+// page's front matter because they vary per page:
+//   hero_enabled, hero_image, hero_title, hero_color   → hero banner
+//   main_header: { title, subtitle, image_url }         → page header image
+//   announcement_enabled, reprise_enabled               → schedule widgets
