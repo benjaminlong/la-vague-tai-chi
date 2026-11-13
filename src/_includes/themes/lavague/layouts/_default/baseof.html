@@ -25,19 +25,22 @@
     <!--    Load lavague.taichichuan.11ty css -->
     <link rel="stylesheet" href="{{ '/public/main.css' | url }}">
     <!--    Custom js to enabled dark mode -->
+    {%- if site.theme.darkModeEnabled %}
     <script type="text/javascript" data-name="theme-toggle">
         (function() {
-            // let savedTheme = null;
+            let savedTheme = null;
             try {
                 savedTheme = localStorage.getItem('theme');
             } catch (e) {}
 
             const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
             const theme = savedTheme || systemTheme;
-            // console.log("Settings theme:", theme);
-            document.documentElement.classList.toggle(theme);
+            // Tailwind reacts to the `dark` class only; "set" it (not toggle, which
+            // would flip off on any re-run). Light mode = absence of the class.
+            if (theme === 'dark') document.documentElement.classList.add('dark');
         })();
     </script>
+    {%- endif %}
     <!--    Loaded Custom js to enabled dark mode -->
 </head>
 
@@ -78,11 +81,12 @@
     <!-- outputs all the icons used on the page -->
     {% getBundle "fontawesome" %}
 
+    {%- if site.theme.darkModeEnabled %}
     <!-- capture the JS content as a Nunjucks variable -->
     {% set js %} {% include "themes/lavague/assets/theme.js" %} {% endset %}
     <!-- feed it through our jsmin filter to minify -->
     <script>{{ js | jsmin | safe }}</script>
     <!-- Dark/Light Toggle UX -->
-    <script></script>
+    {%- endif %}
 </body>
 </html>

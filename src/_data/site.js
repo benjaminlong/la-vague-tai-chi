@@ -14,6 +14,11 @@ export default {
 	// --- SEO / verification ---
 	googleSiteVerification: "aYlNp24QflaYgCovml-MOUlBKFGMIT7-XR6vb2Gd9n4",
 
+	// Fallback social-share image (og:image / twitter:image) used when a page
+	// doesn't set its own `seoImage` in front matter. Root-relative; made
+	// absolute at build time via baseUrl. Empty = no image on shares.
+	defaultSeoImage: "/public/banners/TaiChi-10-1280.jpg",
+
 	// --- Branding (brand *colors* live in tailwind.config.js: `brand`) ---
 	logo: {
 		mark: "/public/logo.png",       // calligraphy mark (太極拳)
@@ -37,6 +42,10 @@ export default {
 	// Brand *colors* live in tailwind.config.js (`brand`). Typography is here:
 	// leave empty to use the theme's default (system) font stack.
 	theme: {
+		// Dark/light feature switch. true = show the toggle, follow the OS
+		// preference, and remember the visitor's choice. false = always light:
+		// the toggle is hidden and the OS dark-mode preference is ignored.
+		darkModeEnabled: false,
 		fonts: {
 			googleFontsUrl: "", // e.g. "https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
 			heading: "",        // CSS font-family applied to h1–h6 when set

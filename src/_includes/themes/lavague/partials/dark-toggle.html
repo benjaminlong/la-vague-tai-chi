@@ -1,4 +1,12 @@
+{% if site.theme.darkModeEnabled %}
 <button class="theme-toggle p-2 text-slate-50" aria-label="Toggle dark mode" aria-pressed="false">
     <i class="theme-toggle-dark-icon fa-solid fa-yin-yang" style="width: 1.75rem; height: 1.75rem;"></i>
     <i class="theme-toggle-light-icon fa-solid fa-yin-yang" style="width: 1.75rem; height: 1.75rem; transition: transform 2s ease-in-out; transform: rotate(180deg);"></i>
 </button>
+{% else %}
+{# Dark mode off: keep the yin-yang as a static decorative mark (part of the
+   header design), not an interactive toggle — no click, no theme switch. #}
+<span class="p-2 text-slate-50" aria-hidden="true">
+    <i class="fa-solid fa-yin-yang" style="width: 1.75rem; height: 1.75rem;"></i>
+</span>
+{% endif %}

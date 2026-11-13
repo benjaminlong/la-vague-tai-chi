@@ -1,7 +1,12 @@
 name: buildcd
 
 on:
+  # Only build on main: the heavy LFS pull (~700 MB) + full build would
+  # otherwise run on every push to every branch, burning Actions minutes and
+  # LFS bandwidth. Add `pull_request:` here if you want PR build validation.
   push:
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
   build:
