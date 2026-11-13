@@ -11,7 +11,24 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
         with:
-          lfs: true
+          # Don't pull LFS during checkout — we restore it from cache below.
+          # This avoids re-downloading the ~700 MB video every build and
+          # exhausting the 1 GB/month free LFS bandwidth.
+          lfs: false
+
+      - name: Build LFS object list (cache key)
+        run: git lfs ls-files --long | cut -d ' ' -f1 | sort > .lfs-assets-id
+
+      - name: Cache LFS objects
+        uses: actions/cache@v4
+        with:
+          path: .git/lfs
+          # Key changes only when an LFS file's content changes, so the video
+          # is re-fetched solely when it actually changes.
+          key: lfs-${{ hashFiles('.lfs-assets-id') }}
+
+      - name: Fetch LFS objects (only those missing from cache)
+        run: git lfs pull
 
       - name: Use Node.js
         uses: actions/setup-node@v5
