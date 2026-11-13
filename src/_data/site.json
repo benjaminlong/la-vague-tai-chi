@@ -4,6 +4,16 @@
     "locale": "fr_FR",
     "description": "Enseignement du Taï Chi Chuan à Marseille — association La Vague.",
     "googleSiteVerification": "aYlNp24QflaYgCovml-MOUlBKFGMIT7-XR6vb2Gd9n4",
+    "logo": {
+        "mark": "/public/logo.png",
+        "wordmark": "/public/logolv.jpg"
+    },
+    "contact": {
+        "name": "Pierre Navarino",
+        "phone": "+33676734581",
+        "phoneDisplay": "06 76 73 45 81",
+        "email": "lavague.taichichuan@free.fr"
+    },
     "socials": {
         "facebook": "https://www.facebook.com/lavaguetaichichuan"
     }

@@ -6,7 +6,7 @@
     <title>{{ title }}</title>
     {% include "components/meta.njk" %}
     {% block favicon %}
-        <link rel="icon" type="image/jpeg" href="{{ '/public/logolv.jpg' | url }}" />
+        <link rel="icon" type="image/jpeg" href="{{ site.logo.wordmark | url }}" />
     {% endblock %}
 
     <!--    Load tailwind.css -->

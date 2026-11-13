@@ -1,8 +1,8 @@
 <nav class="top-nav sticky top-0 z-40 flex flex-row items-center justify-between gap-4 h-16 px-4 border-b-2 border-gray-200 bg-red-300 dark:bg-gray-800 dark:border-red-900">
   <!-- Marque : calligraphie + logo, lien vers l'accueil -->
   <a href="{{ '/' | url }}" class="flex shrink-0 items-center gap-3">
-    <img src="{{ '/public/logo.png' | url }}" alt="太極拳" class="h-10 object-contain">
-    <img src="{{ '/public/logolv.jpg' | url }}" alt="La Vague Taï Chi Chuan" class="h-10 object-contain hidden">
+    <img src="{{ site.logo.mark | url }}" alt="太極拳" class="h-10 object-contain">
+    <img src="{{ site.logo.wordmark | url }}" alt="{{ site.name }}" class="h-10 object-contain hidden">
   </a>
 
   <!-- Navigation (générée depuis eleventyNavigation) -->

@@ -3,11 +3,11 @@
         Renseignements</br>Inscriptions
     </h4>
     <div class="flex flex-col gap-3 text-gray-800 dark:text-gray-100">
-        <div class="font-semibold">Pierre Navarino</div>
-        <a class="underline" href="tel:+33676734581">06 76 73 45 81</a>
-        <a class="underline text-blue-600" href="mailto:lavague.taichichuan@free.fr">lavague.taichichuan@free.fr</a>
+        <div class="font-semibold">{{ site.contact.name }}</div>
+        <a class="underline" href="tel:{{ site.contact.phone }}">{{ site.contact.phoneDisplay }}</a>
+        <a class="underline text-blue-600" href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a>
         <div class="flex flex-row justify-center">
-            <a href="https://www.facebook.com/lavaguetaichichuan"
+            <a href="{{ site.socials.facebook }}"
                class="flex items-center gap-2 p-2 pr-4 rounded-lg bg-blue-600 hover:bg-blue-700 text-white"
                target="_blank" rel="noreferrer">
                 <i class="fa-brands fa-facebook size-1"></i>
