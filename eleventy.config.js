@@ -20,6 +20,14 @@ function escapeAttr(value) {
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function(eleventyConfig) {
+	// Base URL for absolute links in SEO/social meta (canonical, og:url,
+	// og:image). Injected at build time via the SITE_URL env var (the GitHub
+	// Pages workflow derives it from the CNAME file — see buildcd.yaml).
+	// Unset locally → "" → root-relative URLs that resolve against localhost.
+	eleventyConfig.addGlobalData("baseUrl", () =>
+		(process.env.SITE_URL || "").replace(/\/+$/, "")
+	);
+
     // Add plugins FontAwesome
 	eleventyConfig.addPlugin(fontAwesomePlugin);
 

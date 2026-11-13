@@ -28,8 +28,10 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build Eleventy site
-#        run: yarn eleventy --pathprefix="${{ steps.pages.outputs.base_path }}"
-        run: yarn eleventy
+        # Inject the public domain so SEO/social meta emit absolute URLs.
+        # Derived from the CNAME file (the GitHub Pages custom-domain config),
+        # so the domain lives in exactly one place.
+        run: SITE_URL="https://$(cat CNAME)" yarn eleventy
 
       - name: Upload artifact
         if: github.ref == 'refs/heads/main'
