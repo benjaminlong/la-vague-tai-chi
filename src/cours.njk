@@ -23,7 +23,7 @@ main_header:
 <h4>Les lieux</h4>
 
 <div class="my-4 flex flex-wrap justify-center gap-2">
-    {% for cour in collections.cours %}
+    {% for cour in collections.cours | sort(false, true, "inputPath") %}
         <div class="flex flex-col p-4 border rounded-md w-52">
             <div class="font-semibold">{{ cour.data.short_title }}</div>
             <div class="text-sm">{{ cour.data.address.line1 }}</div>
@@ -105,7 +105,7 @@ main_header:
 </div>
 
 <div class="hidden">
-    {% for cour in collections.cours %}
+    {% for cour in collections.cours | sort(false, true, "inputPath") %}
         <div class="">
             <h3 class="text-xl font-bold"><a href="{{ cour.url }}">{{ cour.data.short_title }}</a></h3>
             <p>{{ cour.data.short_description }}</p>

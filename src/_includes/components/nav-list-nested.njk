@@ -4,14 +4,14 @@
 
 <li>
   <a href="{{ entry.url | url }}"{% if entry.url == page.url %} aria-current="page" {% endif %}
-     class="flex flex-row items-center block rounded-lg px-4 py-2 text-sm font-medium {% if entry.url == page.url %}bg-red-50 dark:bg-gray-700{% else %}{% endif %}">
+     class="flex flex-row items-center block rounded-lg px-4 py-2 text-sm font-medium {% if entry.url == page.url %}bg-brand-50 dark:bg-gray-700{% else %}{% endif %}">
     {% if entry.icon %}
         <i class="{{ entry.icon }} size-1 inline-block"></i>
     {% endif %}
     <span class="">{{ entry.title }}</span>
   </a>
   {%- if entry.children.length -%}
-    <ul class="ml-4 list-none border-l-2 border-red-50 dark:border-gray-700">
+    <ul class="ml-4 list-none border-l-2 border-brand-50 dark:border-gray-700">
       {%- for child in entry.children %}{{ renderNavListItem(child) }}{% endfor -%}
     </ul>
   {%- endif -%}

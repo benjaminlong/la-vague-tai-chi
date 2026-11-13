@@ -34,11 +34,14 @@ export default async function(eleventyConfig) {
 	// Add plugins Navigation
 	eleventyConfig.addPlugin(eleventyNavigation);
 
-	// Cours triés par jour de la semaine (lundi -> dimanche)
+	// Cours triés par jour de la semaine (lundi -> dimanche), avec un tri
+	// secondaire alphabétique (inputPath) pour un ordre stable et déterministe.
 	const DAY_ORDER = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"];
 	eleventyConfig.addCollection("coursByDay", (collectionApi) =>
 		collectionApi.getFilteredByTag("cours").sort(
-			(a, b) => DAY_ORDER.indexOf(a.data.lesson.day) - DAY_ORDER.indexOf(b.data.lesson.day)
+			(a, b) =>
+				DAY_ORDER.indexOf(a.data.lesson.day) - DAY_ORDER.indexOf(b.data.lesson.day)
+				|| a.inputPath.localeCompare(b.inputPath)
 		)
 	);
 
