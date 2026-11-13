@@ -1,5 +1,6 @@
 ---
 title: L'Enseignement | La Vague | Taï Chi Chuan
+description: "Pierre Navarino, enseignant de Taï Chi Chuan diplômé BPAMCI, formé auprès de Michèle Roldes et des maîtres Tung. Association La Vague à Marseille."
 layout: "layouts/base.njk"
 eleventyNavigation:
   key: ensegnant

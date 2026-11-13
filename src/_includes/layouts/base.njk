@@ -1,17 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ site.lang }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    <meta name="Author" lang="fr" content="LA VAGUE TAI CHI CHUAN" />
-    <meta name="Reply-to" content="lavague.taichichuan.free.fr" />
-    <meta name="Description" content="Enseignement du Tai Chi Chuan à Marseille" />
-    <meta name="Keywords" content="tai chi chuan, cours taichichuan, tai chi chuan Marseille, la vague tai chi chuan" />
-    <meta name="New_keywords" content="tai chi chuan à Marseille, la vague taichi chuan" />
-    <meta name="robots" content="All" />
-    <meta name="Revisit-After" content="15 days" />
-    {% block meta_data %}{% endblock %}
+    {% include "components/meta.njk" %}
     {% block favicon %}
         <link rel="icon" type="image/jpeg" href="{{ '/public/logolv.jpg' | url }}" />
     {% endblock %}
@@ -63,6 +56,11 @@
                 {% endif %}
             {% endblock %}
             {% block content %}
+                {% if announcement_enabled %}
+                    <div class="bg-white dark:bg-gray-800 p-4">
+                        {% include "components/announcement.html" %}
+                    </div>
+                {% endif %}
                 {% if reprise_enabled %}
                     <div class="bg-white dark:bg-gray-800 p-4">
                         {% include "components/reprise.html" %}

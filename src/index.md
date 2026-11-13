@@ -1,12 +1,14 @@
 ---
 title: Accueil | La Vague | Taï Chi Chuan
+description: "Association La Vague à Marseille : enseignement du Taï Chi Chuan, forme Yang de la famille Tung. Art martial interne, méditation en mouvement et gymnastique de santé."
 layout: "layouts/base.njk"
 hero_enabled: true
 #hero_title: "La Vague"
 #hero_subtitle: "Taï Chi Chuan"
 hero_image: "/public/gallery/TaiChi-10-1280.jpg"
 hero_color: "text-gray-800"
-reprise_enabled: true
+announcement_enabled: true
+reprise_enabled: false
 eleventyNavigation:
   key: Home
   title: Accueil
@@ -18,7 +20,6 @@ eleventyNavigation:
 
 La traduction littérale de Tai Chi Chuan est : boxe du faîte suprême.
 Le Tai Chi Chuan est classé dans la catégorie des Arts Martiaux Chinois Internes :
-
 
 
 **L’Apprentissage** débute par l’exécution de mouvements dans la lenteur. Apprendre à placer son corps (centre de gravité, flexion, coordination, concentration, écoute et regard).

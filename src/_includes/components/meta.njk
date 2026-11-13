@@ -1,0 +1,33 @@
+{#
+  SEO + social meta.
+  Inputs:
+    - page front matter : title, description, seoImage (all optional except title)
+    - global data       : site.* (src/_data/site.json), baseUrl (eleventy.config.js)
+  Absolute URLs are built from `baseUrl` (env SITE_URL -> CNAME -> "" in dev).
+  The `url` filter keeps paths correct if a pathPrefix is ever configured.
+#}
+{%- set metaDescription = description or site.description -%}
+{%- set canonicalUrl = baseUrl + (page.url | url) -%}
+{%- if seoImage -%}{%- set ogImage = baseUrl + (seoImage | url) -%}{%- endif -%}
+
+<link rel="canonical" href="{{ canonicalUrl }}">
+<meta name="description" content="{{ metaDescription }}">
+<meta name="robots" content="index, follow">
+
+{# Open Graph #}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:locale" content="{{ site.locale }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ metaDescription }}">
+<meta property="og:url" content="{{ canonicalUrl }}">
+{% if ogImage %}<meta property="og:image" content="{{ ogImage }}">{% endif %}
+
+{# Twitter Card #}
+<meta name="twitter:card" content="{{ 'summary_large_image' if ogImage else 'summary' }}">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ metaDescription }}">
+{% if ogImage %}<meta name="twitter:image" content="{{ ogImage }}">{% endif %}
+
+{# Google Search Console #}
+{% if site.googleSiteVerification %}<meta name="google-site-verification" content="{{ site.googleSiteVerification }}">{% endif %}

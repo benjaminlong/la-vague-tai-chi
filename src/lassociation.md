@@ -1,5 +1,6 @@
 ---
 title: L'Association | La Vague | Taï Chi Chuan
+description: "L'association loi 1901 « La Vague », fondée à Marseille en 1998 : neuf cours de Taï Chi Chuan par semaine et une centaine d'adhérents."
 layout: "layouts/base.njk"
 hero_enabled: true
 hero_image: "/public/gallery/TaiChi-233-1280.jpg"

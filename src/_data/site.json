@@ -1,30 +1,10 @@
 {
-    "author": {
-        "firstName": "John",
-        "lastName": "Smith",
-        "email": "foobar@gmail.com",
-        "twitterHandle": "tannerdolby",
-        "about": "Freelance Dude"
-    },
+    "name": "La Vague Taï Chi Chuan",
+    "lang": "fr",
+    "locale": "fr_FR",
+    "description": "Enseignement du Taï Chi Chuan à Marseille — association La Vague.",
+    "googleSiteVerification": "aYlNp24QflaYgCovml-MOUlBKFGMIT7-XR6vb2Gd9n4",
     "socials": {
-        "twitter": "https://twitter.com/tannerdolby",
-        "linkedin": "https://linkedin.com/in/tanner-dolby",
-        "dribbble": "https://dribbble.com/tannerdolby",
-        "github": "https://github.com/tannerdolby"
-    },
-    "pageMetadata": {
-        "home": {
-            "content": "Home content!"
-        },
-        "gallery": {
-            "content": "Gallery content"
-        },
-        "featured": {
-            "content": "featured content"
-        },
-        "about": {
-            "content": "About content"
-        }
-
+        "facebook": "https://www.facebook.com/lavaguetaichichuan"
     }
 }
